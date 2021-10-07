@@ -1,0 +1,77 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class DialogoVender extends JDialog implements ActionListener {
+	private JLabel lblCantidad;
+	private JTextField txtField;
+	private JButton btnProcesar;
+	private JButton btnBorrar;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DialogoVender dialog = new DialogoVender();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public DialogoVender() {
+		setTitle("Mantenimiento | Vender");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		lblCantidad = new JLabel("Cantidad");
+		lblCantidad.setBounds(10, 11, 57, 14);
+		getContentPane().add(lblCantidad);
+		
+		txtField = new JTextField();
+		txtField.setBounds(63, 8, 86, 20);
+		getContentPane().add(txtField);
+		txtField.setColumns(10);
+		
+		btnProcesar = new JButton("Procesar");
+		btnProcesar.addActionListener(this);
+		btnProcesar.setBounds(159, 7, 89, 23);
+		getContentPane().add(btnProcesar);
+		
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.setBounds(247, 7, 89, 23);
+		getContentPane().add(btnBorrar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(335, 7, 89, 23);
+		getContentPane().add(btnCerrar);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnProcesar) {
+			actionPerformedBtnProcesar(e);
+		}
+	}
+	protected void actionPerformedBtnProcesar(ActionEvent e) {
+		
+	}
+}

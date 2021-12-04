@@ -1,0 +1,179 @@
+package semana_14;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import java.awt.Font;
+
+public class For extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+
+	private JPanel contentPane;
+	private JButton btnA;
+	private JButton btnB;
+	private JButton btnC;
+	private JButton btnD;
+	private JButton btnE;
+	private JButton btnF;
+	private JScrollPane scpScroll;
+	private JTextArea txtS;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					For frame = new For();
+					frame.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public For() {
+		setTitle("Estructura de repetión: for");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 575, 400);
+
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		btnA = new JButton("A");
+		btnA.addActionListener(this);
+		btnA.setBounds(10, 10, 89, 23);
+		contentPane.add(btnA);
+
+		btnB = new JButton("B");
+		btnB.addActionListener(this);
+		btnB.setBounds(100, 10, 89, 23);
+		contentPane.add(btnB);
+
+		btnC = new JButton("C");
+		btnC.addActionListener(this);
+		btnC.setBounds(190, 10, 89, 23);
+		contentPane.add(btnC);
+
+		btnD = new JButton("D");
+		btnD.addActionListener(this);
+		btnD.setBounds(280, 10, 89, 23);
+		contentPane.add(btnD);
+	
+		btnE = new JButton("E");
+		btnE.addActionListener(this);
+		btnE.setBounds(370, 10, 89, 23);
+		contentPane.add(btnE);
+
+		btnF = new JButton("F");
+		btnF.addActionListener(this);
+		btnF.setBounds(460, 10, 89, 23);
+		contentPane.add(btnF);
+		
+		scpScroll = new JScrollPane();
+		scpScroll.setBounds(10, 40, 539, 310);
+		contentPane.add(scpScroll);
+
+		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		scpScroll.setViewportView(txtS);
+	}
+
+	public void actionPerformed(ActionEvent arg0) {
+		txtS.setText("");
+		if (arg0.getSource() == btnF) {
+			actionPerformedBtnF(arg0);
+		}
+		if (arg0.getSource() == btnE) {
+			actionPerformedBtnE(arg0);
+		}
+		if (arg0.getSource() == btnD) {
+			actionPerformedBtnD(arg0);
+		}
+		if (arg0.getSource() == btnC) {
+			actionPerformedBtnC(arg0);
+		}
+		if (arg0.getSource() == btnB) {
+			actionPerformedBtnB(arg0);
+		}
+		if (arg0.getSource() == btnA) {
+			actionPerformedBtnA(arg0);
+		}
+	}
+	
+	//  Procesa la pulsación del botón A
+	protected void actionPerformedBtnA(ActionEvent arg0) {
+		/**
+			Genere 15 números naturales al azar de dos dígitos.
+		    Muestre la suma de los números.
+		 */
+		int numero;
+		for (int i=1; i<=15; i++) {
+			imprimir(i + ")");
+			numero = aleatorio(10, 99);
+			imprimir(i + ")" + "\t" + "numero = " + numero);
+		}
+	}
+	//  Procesa la pulsación del botón B
+	protected void actionPerformedBtnB(ActionEvent arg0) {
+		/**
+		    Simule 20 veces el lanzamiento de dos dados.
+		    Muestre el puntaje acumulado por cada uno.
+	     */
+		
+	}
+	//  Procesa la pulsación del botón C
+	protected void actionPerformedBtnC(ActionEvent arg0) {
+		/**
+			Muestre y sume los 30 primeros términos de la serie:
+			5  10  15  20  25  . . .
+		 */
+
+	}
+	//  Procesa la pulsación del botón D
+	protected void actionPerformedBtnD(ActionEvent arg0) {
+		/**
+		   Muestre y sume los 25 primeros términos de la serie:
+			2/3  5/7  8/11  11/15  14/19  . . .
+	     */
+		
+	}
+	//  Procesa la pulsación del botón E
+	protected void actionPerformedBtnE(ActionEvent arg0) {
+		/**
+			Muestre y sume los 30 primeros términos de la serie:
+			1/2  3/7  5/12  7/17  9/22  . . .
+		 */
+
+	}
+	//  Procesa la pulsación del botón F
+	protected void actionPerformedBtnF(ActionEvent arg0) {
+		/**
+			Muestre y sume los 30 primeros términos de la serie:
+			2/5  -5/7  8/9  -11/11  14/13  . . .
+	     */
+		
+	}
+	//  Métodos que retornan valor (con parámetros)
+	int aleatorio(int min, int max) {
+		return (int)((max - min + 1)*Math.random()) + min;
+	}
+	//  Métodos tipo void (con parámetros)
+	void imprimir(String s) {
+		txtS.append(s + "\n");
+	}
+	
+}

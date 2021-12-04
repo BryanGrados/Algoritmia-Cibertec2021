@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\bryan\Desktop\IAlgoritmia\Bb IA_Semana_14\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2296838412.index
+1210658807.index

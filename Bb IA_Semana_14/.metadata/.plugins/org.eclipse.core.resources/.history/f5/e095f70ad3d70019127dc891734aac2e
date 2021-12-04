@@ -1,0 +1,110 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Ejemplo extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;  
+	
+	private JPanel contentPane;
+	private JLabel lblMoneda;
+	private JButton btnProcesar;
+	private JButton btnBorrar;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+	private JComboBox <String> cboMoneda;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Ejemplo frame = new Ejemplo();
+					frame.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Ejemplo() {
+		setTitle("Ejemplo - Semana 03");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		lblMoneda = new JLabel("Moneda");
+		lblMoneda.setBounds(10, 11, 47, 14);
+		contentPane.add(lblMoneda);
+		
+		btnProcesar = new JButton("Procesar");
+		btnProcesar.addActionListener(this);
+		btnProcesar.setBounds(335, 7, 89, 23);
+		contentPane.add(btnProcesar);
+		
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(this);
+		btnBorrar.setBounds(335, 32, 89, 23);
+		contentPane.add(btnBorrar);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 86, 414, 164);
+		contentPane.add(scrollPane);
+		
+		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		scrollPane.setViewportView(txtS);
+		
+		cboMoneda = new JComboBox <String> ();
+		cboMoneda.setModel(new DefaultComboBoxModel <String>
+		                  (new String[] {"Soles", "D\u00F3lares", "Euros", "Yenes", "Yuanes"}));
+		cboMoneda.setBounds(63, 9, 75, 20);
+		contentPane.add(cboMoneda);
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnBorrar) {
+			actionPerformedBtnBorrar(arg0);
+		}
+		if (arg0.getSource() == btnProcesar) {
+			actionPerformedBtnProcesar(arg0);
+		}
+	}
+	protected void actionPerformedBtnProcesar(ActionEvent arg0) {
+		//  Declaración de variables
+		String moneda;
+		int posMoneda;
+		//  Entrada de datos
+		moneda = cboMoneda.getSelectedItem().toString();
+		posMoneda = cboMoneda.getSelectedIndex();
+		//  Salida de resultados
+		txtS.setText("Moneda seleccionada :  " + moneda + "\n");
+		txtS.append ("Posición del item   :  " + posMoneda);
+	}
+	protected void actionPerformedBtnBorrar(ActionEvent arg0) {
+		txtS.setText("");
+		cboMoneda.setSelectedIndex(0);
+	}
+}

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Minecraft-GitHub:jar">
+    <output-path>$PROJECT_DIR$/../../../ServerDev/plugins</output-path>
+    <root id="archive" name="Minecraft-GitHub.jar">
+      <element id="module-output" name="Minecraft-GitHub" />
+    </root>
+  </artifact>
+</component>

@@ -11,8 +11,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import java.awt.Font;
-import javax.swing.JScrollPane;
 
 public class DialogoVender extends JDialog implements ActionListener {
 	private JLabel lblCantidad;
@@ -21,7 +19,6 @@ public class DialogoVender extends JDialog implements ActionListener {
 	private JButton btnBorrar;
 	private JButton btnCerrar;
 	private JTextArea txtS;
-	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -74,13 +71,8 @@ public class DialogoVender extends JDialog implements ActionListener {
 		getContentPane().add(btnCerrar);
 		
 		txtS = new JTextArea();
-		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		txtS.setBounds(10, 36, 414, 214);
 		getContentPane().add(txtS);
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 36, 414, 214);
-		getContentPane().add(scrollPane);
 
 	}
 
